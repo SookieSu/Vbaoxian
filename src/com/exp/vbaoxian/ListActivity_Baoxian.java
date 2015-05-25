@@ -48,7 +48,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
 
-public final class ListFragment_Baoxian extends ListFragment {
+public final class ListActivity_Baoxian extends ListActivity {
 
 	static final int MENU_MANUAL_REFRESH = 0;
 	static final int MENU_DISABLE_SCROLL = 1;
@@ -65,36 +65,15 @@ public final class ListFragment_Baoxian extends ListFragment {
     private List<Map<String,Object>>  testdata;
     
     private List<Baoxian>  testlist;
-    
-    
-    
-    
+ 
     
 	/** Called when the activity is first created. */
-    
-    
-    
-    
+  
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setListAdapter(adapter);
-
-}
-	
-	
-		
-
-	
-	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		int LayoutID = getResources().getIdentifier("activity_ptr_list", "layout", getActivity().getPackageName());
-		View view = inflater.inflate(LayoutID, container, false);
-		
-		mPullRefreshListView = (PullToRefreshListView)view.findViewById(R.id.pull_refresh_list);
+		setContentView(R.layout.activity_ptr_list);
+		mPullRefreshListView = (PullToRefreshListView)findViewById(R.id.pull_refresh_list);
 		
 ///////////////////////////////////////////////////////////////////////////////////////////
 		testlist = new ArrayList<Baoxian>();
@@ -142,14 +121,14 @@ public final class ListFragment_Baoxian extends ListFragment {
 			testdata.add(map); 
 		}
 
-		adapter  = new  SimpleAdapter(getActivity(), testdata, R.layout.list_item, new String[]{"name","age","time","group","price"}, new int[]{R.id.name,R.id.age,R.id.time,R.id.group,R.id.price});   
+		adapter  = new  SimpleAdapter(this, testdata, R.layout.list_item, new String[]{"name","age","time","group","price"}, new int[]{R.id.name,R.id.age,R.id.time,R.id.group,R.id.price});   
 		
 		///////////////////////////////////////////////////////////////////////////////////////////
 		// Set a listener to be invoked when the list should be refreshed.
 		mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-				String label = DateUtils.formatDateTime(getActivity().getApplicationContext(), System.currentTimeMillis(),
+				String label = DateUtils.formatDateTime(getApplicationContext(), System.currentTimeMillis(),
 						DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
 
 				// Update the LastUpdatedLabel
@@ -165,7 +144,7 @@ public final class ListFragment_Baoxian extends ListFragment {
 
 			@Override
 			public void onLastItemVisible() {
-				Toast.makeText(getActivity(), "End of List!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ListActivity_Baoxian.this, "End of List!", Toast.LENGTH_SHORT).show();
 			}
 		});
 		///////////////////////////////////////////////////////////////////////////////////
@@ -182,7 +161,7 @@ public final class ListFragment_Baoxian extends ListFragment {
 		/**
 		 * Add Sound Event Listener
 		 */
-		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(getActivity());
+		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(this);
 		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
 		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
 		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
@@ -190,8 +169,8 @@ public final class ListFragment_Baoxian extends ListFragment {
 
 		// You can also just use setListAdapter(mAdapter) or
 		// mPullRefreshListView.setAdapter(mAdapter)
+		listView.setAdapter(adapter);
 		
-		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 	
 	
@@ -259,7 +238,7 @@ public final class ListFragment_Baoxian extends ListFragment {
 			
 		}
 	}
-/*
+
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -272,7 +251,7 @@ public final class ListFragment_Baoxian extends ListFragment {
 		menu.add(0, MENU_DEMO, 0, "Demo");
 		return super.onCreateOptionsMenu(menu);
 	}
-*/
+
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) menuInfo;
@@ -287,7 +266,7 @@ public final class ListFragment_Baoxian extends ListFragment {
 	}
 
 	@Override
-	public void onPrepareOptionsMenu(Menu menu) {
+	public boolean onPrepareOptionsMenu(Menu menu) {
 		MenuItem disableItem = menu.findItem(MENU_DISABLE_SCROLL);
 		disableItem
 				.setTitle(mPullRefreshListView.isScrollingWhileRefreshingEnabled() ? "Disable Scrolling while Refreshing"
@@ -297,7 +276,7 @@ public final class ListFragment_Baoxian extends ListFragment {
 		setModeItem.setTitle(mPullRefreshListView.getMode() == Mode.BOTH ? "Change to MODE_FROM_START"
 				: "Change to MODE_PULL_BOTH");
 
-		//return super.onPrepareOptionsMenu(menu);
+		return super.onPrepareOptionsMenu(menu);
 	}
 
 	@Override

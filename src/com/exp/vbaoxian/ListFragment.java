@@ -53,7 +53,7 @@ public class ListFragment extends Fragment implements OnClickListener{
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
-				intent.setClass(getActivity(),ListFragment_Baoxian.class);
+				intent.setClass(getActivity(),ListActivity_Baoxian.class);
 				getActivity().startActivity(intent);
 			}
 		});

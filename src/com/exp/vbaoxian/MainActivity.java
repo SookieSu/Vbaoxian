@@ -51,7 +51,7 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 	
 	public void DemoOnClick(){
 		Intent intent = new Intent();
-		intent.setClass(this, ListFragment_Baoxian.class);
+		intent.setClass(this, ListActivity_Baoxian.class);
 		startActivity(intent);
 	}
 
@@ -173,7 +173,7 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 			mDrawerLayout.closeDrawer(mDrawerList);
 			break;
 		case 1:
-			Fragment fragment1 = new ListFragment_Baoxian();
+			Fragment fragment1 = new ListFragment();
 			FragmentManager fragmentmanager1 = getFragmentManager();
 			fragmentmanager1.beginTransaction().replace(R.id.content_frame, fragment1).commit();
 			mDrawerList.setItemChecked(position, true);
@@ -181,54 +181,13 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 			mDrawerLayout.closeDrawer(mDrawerList);
 			break;
 		case 2:
-			Fragment fragment2 = new ListFragment_Baoxian();
+			Fragment fragment2 = new MineFragment();
 			FragmentManager fragmentmanager2 = getFragmentManager();
 			fragmentmanager2.beginTransaction().replace(R.id.content_frame, fragment2).commit();
 			mDrawerList.setItemChecked(position, true);
 			setTitle(mTitles[position]);
 			mDrawerLayout.closeDrawer(mDrawerList);
-			break;
-		case 3:
-			Fragment fragment3 = new ListFragment_Baoxian();
-			FragmentManager fragmentmanager3 = getFragmentManager();
-			fragmentmanager3.beginTransaction().replace(R.id.content_frame, fragment3).commit();
-			mDrawerList.setItemChecked(position, true);
-			setTitle(mTitles[position]);
-			mDrawerLayout.closeDrawer(mDrawerList);
-			break;
-		case 4:
-			Fragment fragment4 = new ListFragment_Baoxian();
-			FragmentManager fragmentmanager4 = getFragmentManager();
-			fragmentmanager4.beginTransaction().replace(R.id.content_frame, fragment4).commit();
-			mDrawerList.setItemChecked(position, true);
-			setTitle(mTitles[position]);
-			mDrawerLayout.closeDrawer(mDrawerList);
-			break;
-		case 5:
-			Fragment fragment5 = new ListFragment_Baoxian();
-			FragmentManager fragmentmanager5 = getFragmentManager();
-			fragmentmanager5.beginTransaction().replace(R.id.content_frame, fragment5).commit();
-			mDrawerList.setItemChecked(position, true);
-			setTitle(mTitles[position]);
-			mDrawerLayout.closeDrawer(mDrawerList);
-			break;
-		case 6:
-			Fragment fragment6 = new ListFragment_Baoxian();
-			FragmentManager fragmentmanager6 = getFragmentManager();
-			fragmentmanager6.beginTransaction().replace(R.id.content_frame, fragment6).commit();
-			mDrawerList.setItemChecked(position, true);
-			setTitle(mTitles[position]);
-			mDrawerLayout.closeDrawer(mDrawerList);
-			break;
-		case 7:
-			Fragment fragment7 = new MineFragment();
-			FragmentManager fragmentmanager7 = getFragmentManager();
-			fragmentmanager7.beginTransaction().replace(R.id.content_frame, fragment7).commit();
-			mDrawerList.setItemChecked(position, true);
-			setTitle(mTitles[position]);
-			mDrawerLayout.closeDrawer(mDrawerList);
-			break;
-			
+			break;	
 		}
 	}
 	

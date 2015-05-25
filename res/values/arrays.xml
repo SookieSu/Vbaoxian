@@ -2,12 +2,16 @@
 <resources>
     <string-array name = "pages">
         <item>首页</item>
+       <!-- 
         <item>境内游保障</item>
         <item>境外游保障</item>
         <item>交通意外险</item>
         <item>综合意外险</item>
         <item>健康保障</item>
         <item>家财保障</item>
+        -->
+        <item>分类</item>
         <item>我的</item>
+        <item>设置</item>
     </string-array>
 </resources>

@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListFragment_Baoxian"
+            android:name=".ListActivity_Baoxian"
             android:label="@string/title_activity_ptr_list" >
         </activity>
     </application>
