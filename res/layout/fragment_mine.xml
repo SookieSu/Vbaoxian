@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:smoothScrollbar="true" 
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        
+        >
+        "
+        <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/mine_background"
+        android:adjustViewBounds="true"
+        android:layout_weight="0.5" />
+        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="3"
+         >
+        
+        <Button
+        android:id="@+id/bt_notpaid"
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     	android:layout_weight="1"
+        android:background="@drawable/button_selector"
+        android:focusable="true"
+        android:hapticFeedbackEnabled="true"
+        android:text="等待支付"
+      
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/bt_alreadypaid"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_selector"
+        android:focusable="true"
+        android:hapticFeedbackEnabled="true"
+        android:text="支付成功"
+      
+        android:textSize="14sp" >
+    </Button>
+    </LinearLayout>
+    </LinearLayout>
+    
+    
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="10sp" 
+    >
+
+    <Button
+        android:id="@+id/bt_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       	android:layout_marginTop="10sp"
+        android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    浏览历史"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/bt_favor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+   
+        android:layout_marginTop="4sp"
+        android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    我的收藏夹"
+        android:textSize="14sp" >
+    </Button>
+
+    <Button
+        android:id="@+id/bt_coupon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    我的优惠券"
+        android:textSize="14sp" >
+    </Button>
+    </LinearLayout>
+
+    
+     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:layout_marginTop="10sp"
+    >
+
+    <Button
+        android:id="@+id/bt_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       	android:layout_marginTop="10sp"
+        android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    常用联系人"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/bt_mydata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+   
+        android:layout_marginTop="4sp"
+        android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    我的资料"
+        android:textSize="14sp" >
+    </Button>
+
+   
+    </LinearLayout>
+</LinearLayout>
+
+</ScrollView>

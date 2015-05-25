@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    >
+
+    <Button
+        android:id="@+id/bt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       	android:layout_marginTop="10sp"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:background="@drawable/button_selector"
+        android:paddingLeft="10sp"
+        android:text="    境内快乐游保障"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+   		android:background="@drawable/button_selector"
+        android:layout_marginTop="4sp"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    境外安心游保障"
+        android:textSize="14sp" >
+    </Button>
+
+    <Button
+        android:id="@+id/bt3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+       	android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    交通意外保障"
+        android:textSize="14sp" >
+    </Button>
+
+    <Button
+        android:id="@+id/bt4"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_marginTop="4dp"
+       	android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    综合意外保障"
+        android:layout_weight="1"
+        android:textSize="14sp" >
+    </Button>
+
+    <Button
+        android:id="@+id/bt5"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:layout_weight="1"
+        android:text="    健康保障"
+        android:textSize="14sp" >
+    </Button>
+
+    <Button
+        android:id="@+id/bt6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/ic_3"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:hapticFeedbackEnabled="true"
+        android:paddingLeft="10sp"
+        android:text="    家财保障"
+        android:layout_weight="1"
+        android:textSize="14sp" >
+    </Button>
+</LinearLayout>
+
+    <Button
+        android:id="@+id/bt0"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        android:layout_marginTop="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+ 		android:background="@drawable/button_selector"
+       
+   
+
+        android:focusable="true"
+       
+        android:hapticFeedbackEnabled="true"
+    
+
+ 
+        android:text="帮你选保险"
+        android:textSize="17sp" >
+    </Button>
+
+</LinearLayout>
