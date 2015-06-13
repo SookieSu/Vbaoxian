@@ -6,13 +6,7 @@
 
 <!--     The PullToRefreshListView replaces a standard ListView widget. -->
 
-<ImageButton
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" 
-    android:src="@drawable/ic_1"
-    android:background="#ffffff"
-    
-    />
+
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/pull_refresh_list"

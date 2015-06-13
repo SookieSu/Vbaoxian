@@ -1,6 +1,6 @@
 package com.exp.vbaoxian;
 
-import com.exp.vbaoxian.Demo.DemoOnClickListener;
+import com.exp.vbaoxian.MainFragment.DemoOnClickListener;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -165,7 +165,7 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 	private void selectItem(int position){
 		switch (position){
 		case 0:
-			Fragment fragment = new Demo();
+			Fragment fragment = new MainFragment();
 			FragmentManager fragmentmanager = getFragmentManager();
 			fragmentmanager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 			mDrawerList.setItemChecked(position, true);

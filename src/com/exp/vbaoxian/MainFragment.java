@@ -11,7 +11,7 @@ import android.webkit.WebView.FindListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Demo extends Fragment implements OnClickListener{
+public class MainFragment extends Fragment implements OnClickListener{
 
 	public static final int ARG_NUM = 0;
 	private static Button btn;
