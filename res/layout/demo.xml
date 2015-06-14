@@ -3,21 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-       	android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Demo" 
-        android:textSize="35sp"/>
-
-    <Button
-        android:id="@+id/act_shift"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:text="hahahahaha" />
     
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/main_pull_refresh_list"

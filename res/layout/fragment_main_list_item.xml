@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_list_item_frame"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <FrameLayout
+    android:layout_height="fill_parent" >
+    <ImageView
+        android:id="@+id/main_list_item_image"
         android:layout_width="match_parent"
-        android:layout_height="80sp" >
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mine_background" />
 
-        <ImageView
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.6"
+        android:src="@color/white" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/main_list_item_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/mine_background" />
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Button"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.6"
-            android:src="@color/white" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/button1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="Button"
-                android:textColor="#000000"
-                android:textSize="20sp" />
-        </RelativeLayout>
-    </FrameLayout>
-
-</LinearLayout>
+</FrameLayout>

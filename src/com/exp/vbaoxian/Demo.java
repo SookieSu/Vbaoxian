@@ -33,7 +33,6 @@ import android.widget.Toast;
 public class Demo extends ListFragment implements OnClickListener {
 
 	public static final int ARG_NUM = 0;
-	private static Button btn;
 	private PullToRefreshListView mPullRefreshListView;
 	// private ArrayAdapter<String> mAdapter;
 
@@ -41,7 +40,7 @@ public class Demo extends ListFragment implements OnClickListener {
 	private List<Map<String, Object>> data;
 	private ListView listView;
 	private List<Map<String, Object>> testdata;
-	private List<Baoxian> testlist;
+	private List<String> testlist;
 
 	public interface DemoOnClickListener {
 		void DemoOnClick();
@@ -87,14 +86,12 @@ public class Demo extends ListFragment implements OnClickListener {
 		protected void onPostExecute(List<Map<String,Object>> data) {
 			super.onPostExecute(data);
 			
+	          
 	        Map<String,Object>  map = new HashMap<String, Object>();  
-            Baoxian music= (Baoxian)testlist.get(2);  
-            map.put("name",music.getName());  
-            map.put("age", music.getAge());  
-            map.put("time",music.getTime());  
-            map.put("group",music.getGroup());
-            map.put("price", music.getPrice());
-            testdata.add(map); 
+	        String music= "哈哈哈哈哈";
+	        map.put("text_title",music.toString());  
+	        testdata.add(map); 
+	        
             
 	        ////////////////////////
 			adapter.notifyDataSetChanged();
@@ -113,50 +110,23 @@ public class Demo extends ListFragment implements OnClickListener {
 				getActivity().getPackageName());
 		View rootview = inflater.inflate(LayoutID, container, false);
 		
-		btn = (Button) rootview.findViewById(R.id.act_shift);
+	
 		mPullRefreshListView = (PullToRefreshListView)rootview.findViewById(R.id.main_pull_refresh_list);
-		btn.setOnClickListener(new OnClickListener() {
+		
 
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent();
-				intent.setClass(getActivity(), Act_shift_test.class);
-				getActivity().startActivity(intent);
-			}
-		});
 		String title = getResources().getStringArray(R.array.pages)[ARG_NUM];
 		getActivity().setTitle(title);
 		//////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-testlist = new ArrayList<Baoxian>();
-Baoxian m1 = new Baoxian();  
-m1.setId(0);  
-m1.setName("平安旅行意外伤害保险"); 
-m1.setAge("承保年龄");  
-m1.setTime("保障期限");
-m1.setGroup("适用人群");
-m1.setPrice("5.20");
+testlist = new ArrayList<String>();
+String m1 = "买这个没错！";
 
 testlist.add(m1);
-
-Baoxian m2 = new Baoxian();  
-m2.setId(1);  
-m2.setName("户外运动保障精英款"); 
-m2.setAge("承保年龄");  
-m2.setTime("保障期限");
-m2.setGroup("适用人群");
-m2.setPrice("6.00");
+String m2 = "走吧！少年！";
 
 testlist.add(m2);  
-Baoxian m3 = new Baoxian();  
-m3.setId(2);  
-m3.setName("国内旅行保障计划"); 
-m3.setAge("承保年龄");  
-m3.setTime("保障期限");
-m3.setGroup("适用人群");
-m3.setPrice("8.40");
+String m3 = "你的宝贝还在裸奔吗！";
 testlist.add(m3); 
 
 testdata = new  ArrayList<Map<String,Object>>(); 
@@ -166,16 +136,13 @@ testdata = new  ArrayList<Map<String,Object>>();
 for(int i=0;i<testlist.size();i++)
 {  
 Map<String,Object>  map = new HashMap<String, Object>();  
-Baoxian music= (Baoxian)testlist.get(i);  
-map.put("name",music.getName());  
-map.put("age", music.getAge());  
-map.put("time",music.getTime());  
-map.put("group",music.getGroup());
-map.put("price", music.getPrice());
+String music= (String)testlist.get(i);
+map.put("text_title",music);  
+
 testdata.add(map); 
 }
 
-adapter  = new  SimpleAdapter(getActivity(), testdata, R.layout.list_item, new String[]{"name","age","time","group","price"}, new int[]{R.id.name,R.id.age,R.id.time,R.id.group,R.id.price});   
+adapter  = new  SimpleAdapter(getActivity(), testdata, R.layout.fragment_main_list_item, new String[]{"text_title"}, new int[]{R.id.main_list_item_text});   
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Set a listener to be invoked when the list should be refreshed.

@@ -182,17 +182,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int mine_background=0x7f02000e;
     }
     public static final class id {
-        public static final int act_shift=0x7f060011;
         public static final int action_websearch=0x7f06002e;
         public static final int age=0x7f060023;
         public static final int both=0x7f060003;
-        public static final int bt0=0x7f060019;
-        public static final int bt1=0x7f060013;
-        public static final int bt2=0x7f060014;
-        public static final int bt3=0x7f060015;
-        public static final int bt4=0x7f060016;
-        public static final int bt5=0x7f060017;
-        public static final int bt6=0x7f060018;
+        public static final int bt0=0x7f060017;
+        public static final int bt1=0x7f060011;
+        public static final int bt2=0x7f060012;
+        public static final int bt3=0x7f060013;
+        public static final int bt4=0x7f060014;
+        public static final int bt5=0x7f060015;
+        public static final int bt6=0x7f060016;
         public static final int bt_alreadypaid=0x7f06001c;
         public static final int bt_contact=0x7f060020;
         public static final int bt_coupon=0x7f06001f;
@@ -200,7 +199,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int bt_history=0x7f06001d;
         public static final int bt_mydata=0x7f060021;
         public static final int bt_notpaid=0x7f06001b;
-        public static final int button1=0x7f06001a;
         public static final int content_frame=0x7f06000d;
         public static final int disabled=0x7f060000;
         public static final int drawer_layout=0x7f06000c;
@@ -210,7 +208,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int group=0x7f060025;
         public static final int imagebutton2=0x7f060027;
         public static final int left_drawer=0x7f06000e;
-        public static final int main_pull_refresh_list=0x7f060012;
+        public static final int main_list_item_frame=0x7f060018;
+        public static final int main_list_item_image=0x7f060019;
+        public static final int main_list_item_text=0x7f06001a;
+        public static final int main_pull_refresh_list=0x7f060010;
         public static final int manualOnly=0x7f060004;
         public static final int menu_settings=0x7f06002d;
         public static final int name=0x7f060022;
@@ -226,7 +227,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int pull_to_refresh_text=0x7f06002b;
         public static final int rotate=0x7f060007;
         public static final int scrollview=0x7f06000b;
-        public static final int textView1=0x7f060010;
         public static final int time=0x7f060024;
         public static final int webview=0x7f06000a;
     }
