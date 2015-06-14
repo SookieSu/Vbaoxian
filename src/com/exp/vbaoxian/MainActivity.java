@@ -165,12 +165,14 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 	private void selectItem(int position){
 		switch (position){
 		case 0:
+			System.out.println("demo start!");
 			Fragment fragment = new Demo();
 			FragmentManager fragmentmanager = getFragmentManager();
 			fragmentmanager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 			mDrawerList.setItemChecked(position, true);
 			setTitle(mTitles[position]);
 			mDrawerLayout.closeDrawer(mDrawerList);
+			System.out.println("demo end!");
 			break;
 		case 1:
 			Fragment fragment1 = new ListFragment();

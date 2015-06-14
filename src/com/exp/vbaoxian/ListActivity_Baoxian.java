@@ -204,7 +204,7 @@ public final class ListActivity_Baoxian extends ListActivity {
         return   data;  
   }  
 
-	private class GetDataTask extends AsyncTask<Void, Void, List<Map<String,Object>>> {
+	public class GetDataTask extends AsyncTask<Void, Void, List<Map<String,Object>>> {
 
 		@Override
 		protected List<Map<String,Object>> doInBackground(Void... params) {
