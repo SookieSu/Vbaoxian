@@ -148,6 +148,11 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 						Toast.LENGTH_LONG).show();
 			}
 			return true;
+		case R.id.settings:{
+			Intent intent2 = new Intent();
+			intent2.setClass(this, Settings.class);
+			startActivity(intent2);
+		}
 		default:
 			return super.onOptionsItemSelected(item);
 		}
