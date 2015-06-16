@@ -49,151 +49,158 @@ public class Demo extends ListFragment implements OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		
+
 	}
 
-	private List<Map<String,Object>>  getAdapterData(List  list){  
-        List<Map<String,Object>>  data = new  ArrayList<Map<String,Object>>();  
-        for(int i=0;i<list.size();i++){  
-            Map<String,Object>  map = new HashMap<String, Object>();  
-            Baoxian music= (Baoxian)list.get(i);  
-            map.put("name",music.getName());  
-            map.put("age", music.getAge());  
-            map.put("time",music.getTime());  
-            map.put("group",music.getGroup());
-            map.put("price", music.getPrice());
-            data.add(map);  
-            
-     
-        }  
-        return   data;  
-  }  
+	private List<Map<String, Object>> getAdapterData(List list) {
+		List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < list.size(); i++) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			Baoxian music = (Baoxian) list.get(i);
+			map.put("name", music.getName());
+			map.put("age", music.getAge());
+			map.put("time", music.getTime());
+			map.put("group", music.getGroup());
+			map.put("price", music.getPrice());
+			data.add(map);
 
-	private class GetDataTask extends AsyncTask<Void, Void, List<Map<String,Object>>> {
+		}
+		return data;
+	}
+
+	private class GetDataTask extends
+			AsyncTask<Void, Void, List<Map<String, Object>>> {
 
 		@Override
-		protected List<Map<String,Object>> doInBackground(Void... params) {
+		protected List<Map<String, Object>> doInBackground(Void... params) {
 			// Simulates a background job.
 			try {
-				Thread.sleep(4000);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 			}
 			return testdata;
 		}
 
 		@Override
-		protected void onPostExecute(List<Map<String,Object>> data) {
+		protected void onPostExecute(List<Map<String, Object>> data) {
 			super.onPostExecute(data);
-			
-	          
-	        Map<String,Object>  map = new HashMap<String, Object>();  
-	        String music= "哈哈哈哈哈";
-	        map.put("text_title",music.toString());  
-	        testdata.add(map); 
-	        
-            
-	        ////////////////////////
+
+			Map<String, Object> map = new HashMap<String, Object>();
+			String music = "哈哈哈哈哈";
+			map.put("text_title", music.toString());
+			testdata.add(map);
+
+			// //////////////////////
 			adapter.notifyDataSetChanged();
 
 			// Call onRefreshComplete when the list has been refreshed.
 			mPullRefreshListView.onRefreshComplete();
 
-			
 		}
 	}
-	
+
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		System.out.println("demo start!");
 		int LayoutID = getResources().getIdentifier("demo", "layout",
 				getActivity().getPackageName());
 		View rootview = inflater.inflate(LayoutID, container, false);
-		
-	
-		mPullRefreshListView = (PullToRefreshListView)rootview.findViewById(R.id.main_pull_refresh_list);
-		
+
+		mPullRefreshListView = (PullToRefreshListView) rootview
+				.findViewById(R.id.main_pull_refresh_list);
 
 		String title = getResources().getStringArray(R.array.pages)[ARG_NUM];
 		getActivity().setTitle(title);
-		//////////////////////
+		// ////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////
-testlist = new ArrayList<String>();
-String m1 = "买这个没错！";
+		// /////////////////////////////////////////////////////////////////////////////////////////
+		testlist = new ArrayList<String>();
+		String m1 = "买这个没错！";
 
-testlist.add(m1);
-String m2 = "走吧！少年！";
+		testlist.add(m1);
+		String m2 = "走吧！少年！";
 
-testlist.add(m2);  
-String m3 = "你的宝贝还在裸奔吗！";
-testlist.add(m3); 
+		testlist.add(m2);
+		String m3 = "你的宝贝还在裸奔吗！";
+		testlist.add(m3);
 
-testdata = new  ArrayList<Map<String,Object>>(); 
+		testdata = new ArrayList<Map<String, Object>>();
 
+		for (int i = 0; i < testlist.size(); i++) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			String music = (String) testlist.get(i);
+			map.put("text_title", music);
 
+			testdata.add(map);
+		}
 
-for(int i=0;i<testlist.size();i++)
-{  
-Map<String,Object>  map = new HashMap<String, Object>();  
-String music= (String)testlist.get(i);
-map.put("text_title",music);  
+		adapter = new SimpleAdapter(getActivity(), testdata,
+				R.layout.fragment_main_list_item,
+				new String[] { "text_title" },
+				new int[] { R.id.main_list_item_text });
 
-testdata.add(map); 
-}
+		// /////////////////////////////////////////////////////////////////////////////////////////
+		// Set a listener to be invoked when the list should be refreshed.
+		mPullRefreshListView
+				.setOnRefreshListener(new OnRefreshListener<ListView>() {
+					@Override
+					public void onRefresh(
+							PullToRefreshBase<ListView> refreshView) {
+						String label = DateUtils.formatDateTime(getActivity()
+								.getApplicationContext(), System
+								.currentTimeMillis(),
+								DateUtils.FORMAT_SHOW_TIME
+										| DateUtils.FORMAT_SHOW_DATE
+										| DateUtils.FORMAT_ABBREV_ALL);
 
-adapter  = new  SimpleAdapter(getActivity(), testdata, R.layout.fragment_main_list_item, new String[]{"text_title"}, new int[]{R.id.main_list_item_text});   
+						// Update the LastUpdatedLabel
+						refreshView.getLoadingLayoutProxy()
+								.setLastUpdatedLabel(label);
 
-///////////////////////////////////////////////////////////////////////////////////////////
-// Set a listener to be invoked when the list should be refreshed.
-mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
-@Override
-public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-String label = DateUtils.formatDateTime(getActivity().getApplicationContext(), System.currentTimeMillis(),
-DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
+						// Do work to refresh the list here.
+						new GetDataTask().execute();
+					}
+				});
 
-// Update the LastUpdatedLabel
-refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
+		// Add an end-of-list listener
+//		mPullRefreshListView
+//				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
+//
+//					@Override
+//					public void onLastItemVisible() {
+//						Toast.makeText(getActivity(), "End of List!",
+//								Toast.LENGTH_SHORT).show();
+//					}
+//				});
+		// /////////////////////////////////////////////////////////////////////////////////
+		listView = mPullRefreshListView.getRefreshableView();
 
-// Do work to refresh the list here.
-new GetDataTask().execute();
-}
-});
+		// Need to use the Actual ListView when registering for Context Menu
+		registerForContextMenu(listView);
 
-// Add an end-of-list listener
-mPullRefreshListView.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
+		// mListItems = new LinkedList<String>();
+		// mListItems.addAll(Arrays.asList(mStrings));
 
-@Override
-public void onLastItemVisible() {
-Toast.makeText(getActivity(), "End of List!", Toast.LENGTH_SHORT).show();
-}
-});
-///////////////////////////////////////////////////////////////////////////////////
-listView = mPullRefreshListView.getRefreshableView();
+		// mAdapter = new ArrayAdapter<String>(this,
+		// android.R.layout.simple_list_item_1, mListItems);
 
-// Need to use the Actual ListView when registering for Context Menu
-registerForContextMenu(listView);
+		/*
+		 * Add Sound Event Listener
+		 */
+		/*
+		 * SoundPullEventListener<ListView> soundListener = new
+		 * SoundPullEventListener<ListView>(getActivity());
+		 * soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
+		 * soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
+		 * soundListener.addSoundEvent(State.REFRESHING,
+		 * R.raw.refreshing_sound);
+		 * mPullRefreshListView.setOnPullEventListener(soundListener);
+		 */
+		// You can also just use setListAdapter(mAdapter) or
+		// mPullRefreshListView.setAdapter(mAdapter)
+		listView.setAdapter(adapter);
+		// /////////////////////////
 
-//mListItems = new LinkedList<String>();
-//mListItems.addAll(Arrays.asList(mStrings));
-
-//mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mListItems);
-
-/*
-* Add Sound Event Listener
-*/
-/*
-SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(getActivity());
-soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
-soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
-soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
-mPullRefreshListView.setOnPullEventListener(soundListener);
-*/
-// You can also just use setListAdapter(mAdapter) or
-// mPullRefreshListView.setAdapter(mAdapter)
-listView.setAdapter(adapter);
-		///////////////////////////
-		
 		return rootview;
 	}
 

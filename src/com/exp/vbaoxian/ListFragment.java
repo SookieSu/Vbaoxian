@@ -47,16 +47,14 @@ public class ListFragment extends Fragment implements OnClickListener{
 		bt6 = (Button)view.findViewById(R.id.bt6);
 		bt0 = (Button)view.findViewById(R.id.bt0);
 		
-		bt1.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent();
-				intent.setClass(getActivity(),ListActivity_Baoxian.class);
-				getActivity().startActivity(intent);
-			}
-		});
+		bt1.setOnClickListener(this);
+		bt2.setOnClickListener(this);
+		bt3.setOnClickListener(this);
+		bt4.setOnClickListener(this);
+		bt5.setOnClickListener(this);
+		bt6.setOnClickListener(this);
+		bt0.setOnClickListener(this);
+		
 		String title = getResources().getStringArray(R.array.pages)[ARG_NUM];
 		getActivity().setTitle(title);
 		return view;
@@ -65,10 +63,48 @@ public class ListFragment extends Fragment implements OnClickListener{
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
-		
+		Intent intent;
+		switch(arg0.getId()){
+		case R.id.bt1:
+			intent = new Intent();
+			intent.setClass(getActivity(),ListActivity_Baoxian.class);
+			intent.putExtra("title", "境内快乐游保障");
+			getActivity().startActivity(intent);
+			break;
+		case R.id.bt2:
+			intent = new Intent();
+			intent.setClass(getActivity(),ListActivity_Baoxian.class);
+			intent.putExtra("title", "境外安心游保障");
+			getActivity().startActivity(intent);
+			break;
+		case R.id.bt3:
+			intent = new Intent();
+			intent.setClass(getActivity(),ListActivity_Baoxian.class);
+			intent.putExtra("title", "交通意外保障");
+			getActivity().startActivity(intent);
+			break;
+		case R.id.bt4:
+			intent = new Intent();
+			intent.setClass(getActivity(),ListActivity_Baoxian.class);
+			intent.putExtra("title", "综合意外保障");
+			getActivity().startActivity(intent);
+			break;
+		case R.id.bt5:
+			intent = new Intent();
+			intent.setClass(getActivity(),ListActivity_Baoxian.class);
+			intent.putExtra("title", "健康保障");
+			getActivity().startActivity(intent);
+			break;
+		case R.id.bt6:
+			intent = new Intent();
+			intent.setClass(getActivity(),ListActivity_Baoxian.class);
+			intent.putExtra("title", "家财保障");
+			getActivity().startActivity(intent);
+			break;
+		case R.id.bt0:
+			break;
+		}
 	}
-	
-	
 	
 	
 }
