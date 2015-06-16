@@ -24,10 +24,6 @@ import java.util.Map;
 
 import android.app.ListActivity;
 import android.app.ListFragment;
-<<<<<<< HEAD
-import android.app.SearchManager;
-=======
->>>>>>> a1521a6aabd4a9d2b063fc4415217371446c7c4c
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;

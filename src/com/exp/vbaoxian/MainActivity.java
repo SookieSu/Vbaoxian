@@ -93,7 +93,7 @@ public class MainActivity extends Activity implements DemoOnClickListener {
 		getActionBar().setHomeButtonEnabled(true);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, R.string.drawer_open,
+				R.drawable.ic_drawer_w, R.string.drawer_open,
 				R.string.drawer_close) {
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mAppTitle);
