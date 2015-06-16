@@ -12,22 +12,27 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Holo.Light" >
+        android:theme="@style/CustomActionBarTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ListActivity_Baoxian"
-            android:label="@string/title_activity_ptr_list" >
+            android:label="@string/title_activity_ptr_list">
+        </activity>
+        <activity 
+            android:name=".Activity_content_baoxian"
+            android:label="@string/content_baoxian">
         </activity>
         <activity
             android:name=".Settings"
-            android:label="settings" >
+            android:label="@string/action_settings">
         </activity>
     </application>
 
