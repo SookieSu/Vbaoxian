@@ -296,7 +296,7 @@ public final class ListActivity_Baoxian extends ListActivity {
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// If the nav drawer is open, hide action items related to the content
 				// view
-		menu.findItem(R.id.action_websearch).setVisible(true);
+		menu.findItem(R.id.settings).setVisible(true);
 				return super.onPrepareOptionsMenu(menu);
 		
 	}
@@ -309,7 +309,8 @@ public final class ListActivity_Baoxian extends ListActivity {
 				
 				// Handle action buttons
 				switch (item.getItemId()) {
-				case R.id.action_websearch:
+				/*
+				case R.id.:
 					// create intent to perform web search for this planet
 					Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
 					intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
@@ -321,6 +322,7 @@ public final class ListActivity_Baoxian extends ListActivity {
 								Toast.LENGTH_LONG).show();
 					}
 					return true;
+					*/
 				case R.id.settings:{
 					Intent intent2 = new Intent();
 					intent2.setClass(this, Settings.class);

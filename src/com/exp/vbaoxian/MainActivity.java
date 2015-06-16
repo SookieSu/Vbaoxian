@@ -122,7 +122,7 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 		// If the nav drawer is open, hide action items related to the content
 		// view
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+		menu.findItem(R.id.settings).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
 	
@@ -136,6 +136,7 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 		}
 		// Handle action buttons
 		switch (item.getItemId()) {
+		/*
 		case R.id.action_websearch:
 			// create intent to perform web search for this planet
 			Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
@@ -148,6 +149,7 @@ public class MainActivity extends Activity implements DemoOnClickListener{
 						Toast.LENGTH_LONG).show();
 			}
 			return true;
+			*/
 		case R.id.settings:{
 			Intent intent2 = new Intent();
 			intent2.setClass(this, Settings.class);
