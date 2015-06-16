@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">VBaoxian</string>
+    <string name="app_name">微保险</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="action_websearch">Web search</string>
+    <string name="action_websearch">搜索</string>
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
     <string name="title_activity_act_shift_test">Act_shift_test</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_ptr_list">ListActivity_Baoxian</string>
-	
-    
+    <string name="action_settings">设置</string>
     <string name="refreshing">refreshing</string>
     <string name="loading">loading</string>
     <string name="release_refresh">release to refresh</string>
     <string name="pull_to_refresh">pull down to refresh</string>
     <string name="latest_update_time">latest update time: <xliff:g id="UPDATE_TIME">%1$s</xliff:g></string>
+    <string name="content_baoxian">保险内容</string>
+
 </resources>
