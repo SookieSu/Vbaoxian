@@ -24,6 +24,8 @@ import java.util.Map;
 
 import android.app.ListActivity;
 import android.app.ListFragment;
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.DateUtils;
@@ -31,10 +33,14 @@ import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -170,7 +176,17 @@ public final class ListActivity_Baoxian extends ListActivity {
 		// You can also just use setListAdapter(mAdapter) or
 		// mPullRefreshListView.setAdapter(mAdapter)
 		listView.setAdapter(adapter);
-		
+		listView.setClickable(true);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				// TODO Auto-generated method stub
+				Toast.makeText(ListActivity_Baoxian.this, "Start Act11!", Toast.LENGTH_SHORT).show();
+				
+			}
+		});
 	}
 	
 	
@@ -179,7 +195,22 @@ public final class ListActivity_Baoxian extends ListActivity {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
-		HashMap<String, Object> view= (HashMap<String, Object>) l.getItemAtPosition(position);  
+		
+		HashMap<String, Object> view = (HashMap<String, Object>) l.getItemAtPosition(position);
+		
+		switch(position)
+		{
+		default:
+			Toast.makeText(ListActivity_Baoxian.this, "Start Act11!", Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent();
+			intent.setClass(this,Activity_Item_Baoxian.class);
+			startActivity(intent);
+			Toast.makeText(ListActivity_Baoxian.this, "Start Act12!", Toast.LENGTH_SHORT).show();
+			break;
+			
+		}
+		
+		
 	}
 
 
@@ -242,16 +273,11 @@ public final class ListActivity_Baoxian extends ListActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, MENU_MANUAL_REFRESH, 0, "Manual Refresh");
-		menu.add(0, MENU_DISABLE_SCROLL, 1,
-				mPullRefreshListView.isScrollingWhileRefreshingEnabled() ? "Disable Scrolling while Refreshing"
-						: "Enable Scrolling while Refreshing");
-		menu.add(0, MENU_SET_MODE, 0, mPullRefreshListView.getMode() == Mode.BOTH ? "Change to MODE_PULL_DOWN"
-				: "Change to MODE_PULL_BOTH");
-		menu.add(0, MENU_DEMO, 0, "Demo");
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
-
+/*
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) menuInfo;
@@ -264,48 +290,46 @@ public final class ListActivity_Baoxian extends ListActivity {
 
 		super.onCreateContextMenu(menu, v, menuInfo);
 	}
+	*/
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		MenuItem disableItem = menu.findItem(MENU_DISABLE_SCROLL);
-		disableItem
-				.setTitle(mPullRefreshListView.isScrollingWhileRefreshingEnabled() ? "Disable Scrolling while Refreshing"
-						: "Enable Scrolling while Refreshing");
-
-		MenuItem setModeItem = menu.findItem(MENU_SET_MODE);
-		setModeItem.setTitle(mPullRefreshListView.getMode() == Mode.BOTH ? "Change to MODE_FROM_START"
-				: "Change to MODE_PULL_BOTH");
-
-		return super.onPrepareOptionsMenu(menu);
+		// If the nav drawer is open, hide action items related to the content
+				// view
+		menu.findItem(R.id.action_websearch).setVisible(true);
+				return super.onPrepareOptionsMenu(menu);
+		
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
-		switch (item.getItemId()) {
-			case MENU_MANUAL_REFRESH:
-				new GetDataTask().execute();
-				mPullRefreshListView.setRefreshing(false);
-				break;
-			case MENU_DISABLE_SCROLL:
-				mPullRefreshListView.setScrollingWhileRefreshingEnabled(!mPullRefreshListView
-						.isScrollingWhileRefreshingEnabled());
-				break;
-			case MENU_SET_MODE:
-				mPullRefreshListView.setMode(mPullRefreshListView.getMode() == Mode.BOTH ? Mode.PULL_FROM_START
-						: Mode.BOTH);
-				break;
-			case MENU_DEMO:
-				mPullRefreshListView.demo();
-				break;
-		}
-
-		return super.onOptionsItemSelected(item);
+		// The action bar home/up action should open or close the drawer.
+				// ActionBarDrawerToggle will take care of this.
+				
+				// Handle action buttons
+				switch (item.getItemId()) {
+				case R.id.action_websearch:
+					// create intent to perform web search for this planet
+					Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+					intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
+					// catch event that there's no activity to handle intent
+					if (intent.resolveActivity(getPackageManager()) != null) {
+						startActivity(intent);
+					} else {
+						Toast.makeText(this, R.string.app_not_available,
+								Toast.LENGTH_LONG).show();
+					}
+					return true;
+				case R.id.settings:{
+					Intent intent2 = new Intent();
+					intent2.setClass(this, Settings.class);
+					startActivity(intent2);
+				}
+				default:
+					return super.onOptionsItemSelected(item);
+				}
 	}
 
-	private String[] mStrings = { "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",
-			"Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale", "Aisy Cendre",
-			"Allgauer Emmentaler", "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",
-			"Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale", "Aisy Cendre",
-			"Allgauer Emmentaler" };
+
 }

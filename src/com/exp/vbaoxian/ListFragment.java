@@ -61,7 +61,7 @@ public class ListFragment extends Fragment implements OnClickListener{
 		getActivity().setTitle(title);
 		return view;
 	}
-
+	
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
