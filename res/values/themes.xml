@@ -12,8 +12,8 @@
         <item name="android:background">@drawable/actionbar_background</item>
     </style>
 
-    <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
-        <item name="android:src">@drawable/action_search</item>
+    <style name="OverFlow" parent="@drawable/ic_setting">
+        <item name="android:src">@drawable/ic_setting</item>
     </style>
 
 </resources>
