@@ -75,16 +75,16 @@ public final class ListActivity_Baoxian extends ListActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ptr_list);
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		String data=null;  
-		Bundle extras = getIntent().getExtras();  
-		if (extras != null) {  
-		    data = extras.getString("title");  
-		}  
+		String data = null;
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			data = extras.getString("title");
+		}
 		getActionBar().setTitle(data);
 		// /////////////////////////////////////////////////////////////////////////////////////////
 		testlist = new ArrayList<Baoxian>();
@@ -199,7 +199,6 @@ public final class ListActivity_Baoxian extends ListActivity {
 		// @Override
 		// public void onItemClick(AdapterView<?> parent, View view,
 		// int position, long id) {
-		// // TODO Auto-generated method stub
 		// Intent intent = new Intent(this, Settings.class);
 		// intent.setClass(this, Settings.class);
 		// startActivity(intent);
@@ -210,7 +209,6 @@ public final class ListActivity_Baoxian extends ListActivity {
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 
 		HashMap<String, Object> view = (HashMap<String, Object>) l
@@ -239,7 +237,7 @@ public final class ListActivity_Baoxian extends ListActivity {
 
 	public class GetDataTask extends
 			AsyncTask<Void, Void, List<Map<String, Object>>> {
-
+		// TODO:这里要与服务器交互,获取数据,然后放进来.
 		@Override
 		protected List<Map<String, Object>> doInBackground(Void... params) {
 			// Simulates a background job.
@@ -290,22 +288,18 @@ public final class ListActivity_Baoxian extends ListActivity {
 		menu.add(0, MENU_DEMO, 0, "Demo");
 		return super.onCreateOptionsMenu(menu);
 	}
-/*
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
-		AdapterContextMenuInfo info = (AdapterContextMenuInfo) menuInfo;
 
-		menu.setHeaderTitle("Item: "
-				+ getListView().getItemAtPosition(info.position));
-		menu.add("Item 1");
-		menu.add("Item 2");
-		menu.add("Item 3");
-		menu.add("Item 4");
-
-		super.onCreateContextMenu(menu, v, menuInfo);
-	}
-	*/
+	/*
+	 * @Override public void onCreateContextMenu(ContextMenu menu, View v,
+	 * ContextMenuInfo menuInfo) { AdapterContextMenuInfo info =
+	 * (AdapterContextMenuInfo) menuInfo;
+	 * 
+	 * menu.setHeaderTitle("Item: " +
+	 * getListView().getItemAtPosition(info.position)); menu.add("Item 1");
+	 * menu.add("Item 2"); menu.add("Item 3"); menu.add("Item 4");
+	 * 
+	 * super.onCreateContextMenu(menu, v, menuInfo); }
+	 */
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
@@ -327,7 +321,6 @@ public final class ListActivity_Baoxian extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-
 
 		switch (item.getItemId()) {
 		case MENU_MANUAL_REFRESH:
@@ -355,6 +348,5 @@ public final class ListActivity_Baoxian extends ListActivity {
 
 		return super.onOptionsItemSelected(item);
 	}
-
 
 }
